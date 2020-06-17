@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Form_regis_LB1</string>
+    <string name="Titulo_value">Formulario de Registro</string>
+    <string name="nombre_txt">Nombre</string>
+    <string name="Correo_txt">Correo Electrónico</string>
+    <string name="Telefono_txt">Teléfono</string>
+    <string name="Contrasena_txt">Contraseña</string>
+    <string name="Rcontrasena_txt">Repetir Contraseña</string>
+    <string name="Femenino_txt">Femenino</string>
+    <string name="Masculino_txt">Masculino</string>
+    <string name="Cantar_txt">Cantar</string>
+    <string name="verPeliculas_txt">Ver películas</string>
+    <string name="Leer_txt">Leer</string>
+    <string name="Acampar_txt">Acampar</string>
+    <string name="Sexo_txt">Sexo</string>
+    <string name="Hobbies_txt">Hobbies</string>
+    <string name="Fecha_Nacimiento_TX">Fecha de Nacimiento</string>
+    <string name="Formato_TX">MM/dd/yyyy /</string>
+    <string name="Calendario_TX">Calendario</string>
+    <string name="LugarNacimiento_TX">Lugar de Nacimiento</string>
+    <string name="Guardar_TX">Guardar</string>
+
+    <string-array name="LugardeNacimiento">
+        <item>Medellín</item>
+        <item>Pasto</item>
+        <item>Popayán</item>
+        <item>Boyacá</item>
+        <item>Bogotá</item>
+    </string-array>
+</resources>

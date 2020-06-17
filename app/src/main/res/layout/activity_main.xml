@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp"
+    android:background="@color/seashell">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/seashell"
+        android:orientation="vertical"
+        tools:context=".MainActivity"
+        tools:ignore="ScrollViewSize">
+
+        <TextView
+            android:id="@+id/Titulo_TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/architects_daughter"
+            android:gravity="center"
+            android:text="@string/Titulo_value"
+            android:textColor="@color/brown"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/Nombre_ET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:fontFamily="@font/waiting_for_the_sunrise"
+            android:hint="@string/nombre_txt"
+            android:inputType="textPersonName"
+            tools:ignore="Autofill" />
+
+        <EditText
+            android:id="@+id/Correo_ET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:fontFamily="@font/waiting_for_the_sunrise"
+            android:hint="@string/Correo_txt"
+            android:inputType="textEmailAddress"
+            tools:ignore="Autofill" />
+
+        <EditText
+            android:id="@+id/Telefono_ET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:fontFamily="@font/waiting_for_the_sunrise"
+            android:hint="@string/Telefono_txt"
+            android:inputType="phone"
+            tools:ignore="Autofill" />
+
+        <EditText
+            android:id="@+id/Contrasena_ET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:fontFamily="@font/waiting_for_the_sunrise"
+            android:hint="@string/Contrasena_txt"
+            android:inputType="textPassword"
+            tools:ignore="Autofill" />
+
+        <EditText
+            android:id="@+id/Rcontrasena_ET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:fontFamily="@font/waiting_for_the_sunrise"
+            android:hint="@string/Rcontrasena_txt"
+            android:inputType="textPassword"
+            tools:ignore="Autofill" />
+
+        <TextView
+            android:id="@+id/Fecha_TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/architects_daughter"
+            android:gravity="center"
+            android:text="@string/Fecha_Nacimiento_TX"
+            android:textColor="@color/brown"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/FechaNacimiento_TV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/waiting_for_the_sunrise"
+                android:gravity="center"
+                android:text="@string/Formato_TX"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/Calendario_BT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/brown"
+                android:fontFamily="@font/architects_daughter"
+                android:text="@string/Calendario_TX"
+                android:textColor="@color/seashell" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/LugarNacimiento_TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/architects_daughter"
+            android:gravity="center"
+            android:text="@string/LugarNacimiento_TX"
+            android:textColor="@color/brown"
+            android:textSize="18sp" />
+
+        <Spinner
+            android:id="@+id/LugarNacimiento_SP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/LugardeNacimiento" />
+
+        <TextView
+            android:id="@+id/Sexo_ET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:fontFamily="@font/architects_daughter"
+            android:gravity="center"
+            android:text="@string/Sexo_txt"
+            android:textColor="@color/brown"
+            android:textColorHighlight="#FFFFFF"
+            android:textSize="18sp"
+            tools:ignore="InefficientWeight" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/Hombre_RB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/waiting_for_the_sunrise"
+                android:text="@string/Masculino_txt"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/Mujer_RB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:fontFamily="@font/waiting_for_the_sunrise"
+                android:text="@string/Femenino_txt"
+                android:textSize="18sp" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/Hobbies_ET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/architects_daughter"
+            android:gravity="center"
+            android:text="@string/Hobbies_txt"
+            android:textColor="@color/brown"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:id="@+id/Cantar_CB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/waiting_for_the_sunrise"
+                android:text="@string/Cantar_txt"
+                android:textSize="18sp" />
+
+            <CheckBox
+                android:id="@+id/Peliculas_CB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/waiting_for_the_sunrise"
+                android:text="@string/verPeliculas_txt"
+                android:textSize="18sp" />
+
+            <CheckBox
+                android:id="@+id/Leer_CB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/waiting_for_the_sunrise"
+                android:text="@string/Leer_txt"
+                android:textSize="18sp" />
+
+            <CheckBox
+                android:id="@+id/Acampar_CB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/waiting_for_the_sunrise"
+                android:text="@string/Acampar_txt"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/Guardar_BT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:backgroundTint="@color/brown"
+            android:fontFamily="@font/architects_daughter"
+            android:text="@string/Guardar_TX"
+            android:textColor="@color/seashell"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/Resultado_TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/glass_antiqua"
+            android:textColor="@color/brown"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+</ScrollView>
