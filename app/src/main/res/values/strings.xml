@@ -1,30 +1,65 @@
 <resources>
-    <string name="app_name">Form_regis_LB1</string>
+    <string name="app_name">A Trabajar!</string>
     <string name="Titulo_value">Formulario de Registro</string>
-    <string name="nombre_txt">Nombre</string>
+    <string name="nombre_txt">Nombre Completo</string>
     <string name="Correo_txt">Correo Electrónico</string>
-    <string name="Telefono_txt">Teléfono</string>
+    <string name="Celular_txt">Celular</string>
     <string name="Contrasena_txt">Contraseña</string>
     <string name="Rcontrasena_txt">Repetir Contraseña</string>
-    <string name="Femenino_txt">Femenino</string>
-    <string name="Masculino_txt">Masculino</string>
+    <string name="Empleado_txt">Emplead@</string>
+    <string name="Jefe_txt">Jef@</string>
     <string name="Cantar_txt">Cantar</string>
     <string name="verPeliculas_txt">Ver películas</string>
     <string name="Leer_txt">Leer</string>
     <string name="Acampar_txt">Acampar</string>
-    <string name="Sexo_txt">Sexo</string>
+    <string name="jefeoempleado_txt">Indique si es jefe o empleado</string>
     <string name="Hobbies_txt">Hobbies</string>
     <string name="Fecha_Nacimiento_TX">Fecha de Nacimiento</string>
     <string name="Formato_TX">MM/dd/yyyy /</string>
     <string name="Calendario_TX">Calendario</string>
-    <string name="LugarNacimiento_TX">Lugar de Nacimiento</string>
+    <string name="Banco_TX">Indique el banco que utiliza actualmente</string>
     <string name="Guardar_TX">Guardar</string>
+    <string name="otra_actividad">Otra_actividad</string>
+    <string name="otra_actividadmas">otra_actividadmas</string>
+    <string name="Exampel_mail_TX">Correo Electrónico</string>
+    <string name="ingresar_TX">Ingresar</string>
+    <string name="Registrarse_TX">Registrarse</string>
+    <string name="numeroCuenta_TX">Número de cuenta</string>
+    <string name="cerrar_sesion">Cerrar Sesión</string>
+    <string name="Titulo_Splash">A Trabar!</string>
+    <string name="subTitulo_TX">Desarrollada por:</string>
+    <string name="Firma_TX">Julián Longas</string>
+    <string name="Saludo_TX">Hola! Listos para trabajar?</string>
 
     <string-array name="LugardeNacimiento">
-        <item>Medellín</item>
-        <item>Pasto</item>
-        <item>Popayán</item>
-        <item>Boyacá</item>
-        <item>Bogotá</item>
+        <item>Bancolombia</item>
+        <item>NEQUI</item>
+        <item>Ahorro a la mano</item>
+        <item>Banco caja social</item>
+        <item>Davivienda</item>
     </string-array>
+    <string name="title_activity_tabbed">TabbedActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main2">MainActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="Anuncios_fragment_label">Anuncios</string>
+    <string name="horarios_fragment_label">Horarios</string>
+    <string name="Ingreso_fragment_label">Ingreso Salida</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_main3">MainActivity3</string>
+    <string name="Horario_TX">En este fragmento el Empleado tendrá la posiblidad de ver su horario de
+            trabajo y el de los demás compañeros, los jefes tendrán la oportunidad de editar el
+            horario</string>
+    <string name="Anuncios_TX">En este fragmento el Empleado tendrá la posiblidad de ver los anuncios
+        que los jefes ponen, los jefes tendrán la oportunidad de poner los anuncios</string>
+    <string name="Ingreso_TX">En este fragmento el Empleado tendrá la posiblidad de ingresar un encuesta
+            antes de ingresar o salir y tendrá la oportunidad de tomarse la foto para validar la hora
+            de entrada al lugar de trabajo</string>
 </resources>
