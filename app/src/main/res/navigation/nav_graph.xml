@@ -10,35 +10,15 @@
         android:id="@+id/AnunciosFragment"
         android:name="com.longasjulian.form_regis_lb1.Fragmentos.AnunciosFragment"
         android:label="@string/Anuncios_fragment_label"
-        tools:layout="@layout/fragment_ingreso">
-
-        <action
-            android:id="@+id/action_AnunciosFragment_to_SecondFragment"
-            app:destination="@id/HorarioFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_anuncios"/>
     <fragment
         android:id="@+id/HorarioFragment"
         android:name="com.longasjulian.form_regis_lb1.Fragmentos.HorarioFragment"
         android:label="@string/horarios_fragment_label"
-        tools:layout="@layout/fragment_horario">
-
-        <action
-            android:id="@+id/action_HorarioFragment_to_FirstFragment"
-            app:destination="@layout/fragment_ingreso" />
-        <action
-            android:id="@+id/action_HorarioFragment_to_ingresoFragment"
-            app:destination="@id/ingresoFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_horario"/>
     <fragment
         android:id="@+id/ingresoFragment"
         android:name="com.longasjulian.form_regis_lb1.Fragmentos.IngresoFragment"
         android:label="@string/Ingreso_fragment_label"
-        tools:layout="@layout/fragment_ingreso" >
-        <action
-            android:id="@+id/action_ingresoFragment_to_HorarioFragment"
-            app:destination="@id/HorarioFragment" />
-        <action
-            android:id="@+id/action_ingresoFragment_to_HorarioFragment2"
-            app:destination="@id/HorarioFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_ingreso" />
 </navigation>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_jefe"
+    app:startDestination="@id/anunciosJefeFragment"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/anunciosJefeFragment"
+        android:name="com.longasjulian.form_regis_lb1.Fragmentos.AnunciosJefeFragment"
+        android:label="@string/Anuncios_Jefe_fragment_label"
+        tools:layout="@layout/fragment_anuncios_jefe" />
+    <fragment
+        android:id="@+id/horarioJefeFragment"
+        android:name="com.longasjulian.form_regis_lb1.Fragmentos.HorarioJefeFragment"
+        android:label="@string/horarios_Jefe_fragment_label"
+        tools:layout="@layout/fragment_horario_jefe" />
+    <fragment
+        android:id="@+id/empleadosFragment"
+        android:name="com.longasjulian.form_regis_lb1.Fragmentos.EmpleadosFragment"
+        android:label="@string/Empleados_fragment_label"
+        tools:layout="@layout/fragment_empleados" />
+</navigation>

@@ -25,8 +25,12 @@
     <string name="ingresar_TX">Ingresar</string>
     <string name="Registrarse_TX">Registrarse</string>
     <string name="numeroCuenta_TX">Número de cuenta</string>
+
+    <string name="Empleados">Empleados</string>
     <string name="cerrar_sesion">Cerrar Sesión</string>
-    <string name="Titulo_Splash">A Trabar!</string>
+    <string name="Mi_perfil">Mi perfil</string>
+
+    <string name="Titulo_Splash">A Trabajar!</string>
     <string name="subTitulo_TX">Desarrollada por:</string>
     <string name="Firma_TX">Julián Longas</string>
     <string name="Saludo_TX">Hola! Listos para trabajar?</string>
@@ -48,12 +52,11 @@
     <string name="Anuncios_fragment_label">Anuncios</string>
     <string name="horarios_fragment_label">Horarios</string>
     <string name="Ingreso_fragment_label">Ingreso Salida</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="title_activity_main3">MainActivity3</string>
+    <string name="Anuncios_Jefe_fragment_label">Anuncios</string>
+    <string name="horarios_Jefe_fragment_label">Horarios</string>
+    <string name="Empleados_fragment_label">Empleados</string>
+
     <string name="Horario_TX">En este fragmento el Empleado tendrá la posiblidad de ver su horario de
             trabajo y el de los demás compañeros, los jefes tendrán la oportunidad de editar el
             horario</string>
@@ -62,4 +65,19 @@
     <string name="Ingreso_TX">En este fragmento el Empleado tendrá la posiblidad de ingresar un encuesta
             antes de ingresar o salir y tendrá la oportunidad de tomarse la foto para validar la hora
             de entrada al lugar de trabajo</string>
+    <string name="title_activity_main_jefe">A Trabajar!</string>
+    <string name="title_activity_main3">A Trabajar!</string>
+    <string name="Editar_Anuncios_fragment_label">Agregar Anuncios</string>
+    <string name="TituloAnuncio_TX">Escriba el título del anuncio</string>
+    <string name="MensajeAnuncio_TX">Escriba su anuncio</string>
+    <string name="Publicar_TX">Publicar</string>
+    <string name="PreguntaIngreso_TX">¿Alguna otra novedad?</string>
+    <string name="EncuestaIngreso1_TX">No encontré mi lugar de trabajo limpio y organizado</string>
+    <string name="EncuestaIngreso2_TX">Había muchos clientes a la hora de ingreso</string>
+    <string name="EncuestaIngreso4_TX">No se habían realizado aun las tareas diarias de ingreso</string>
+    <string name="Salida_TX">Salir</string>
+    <string name="EncuestaSalida1_TX">No se lograron realizar todas las tareas diarias</string>
+    <string name="EncuestaSalida2_TX">A la hora de salir había poca clientela</string>
+    <string name="EncuestaSalida4_TX">Se realizaron todas las actividades de cierre</string>
+    <string name="Mis_jefes">Mis Jefes</string>
 </resources>

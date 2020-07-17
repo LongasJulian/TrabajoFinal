@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "860706851373",
+    "firebase_url": "https://formregislb1.firebaseio.com",
+    "project_id": "formregislb1",
+    "storage_bucket": "formregislb1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:860706851373:android:368925b926d009529a86a4",
+        "android_client_info": {
+          "package_name": "com.longasjulian.form_regis_lb1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "860706851373-7ujvlj19dg1dil3ukdvs8q9kb98oij45.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.longasjulian.form_regis_lb1",
+            "certificate_hash": "bcf4aa63297024b5a05b00b9b56fe44b029a4217"
+          }
+        },
+        {
+          "client_id": "860706851373-evlmusqup7pqs7ddktnonu7m9ka5n291.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZ3gUnotPstaY5-RQBqagN6nmpk6xJSxc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "860706851373-evlmusqup7pqs7ddktnonu7m9ka5n291.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

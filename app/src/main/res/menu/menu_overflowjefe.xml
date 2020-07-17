@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item
-        android:id="@+id/Mis_jefes"
-        android:title="@string/Mis_jefes" />
-    <item
-        android:id="@+id/Mi_perfil"
+        android:id="@+id/Mi_perfilJefe"
         android:title="@string/Mi_perfil" />
     <item
         android:id="@+id/Cerrar_Sesion"
