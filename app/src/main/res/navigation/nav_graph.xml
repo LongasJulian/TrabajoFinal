@@ -21,4 +21,5 @@
         android:name="com.longasjulian.form_regis_lb1.Fragmentos.IngresoFragment"
         android:label="@string/Ingreso_fragment_label"
         tools:layout="@layout/fragment_ingreso" />
+
 </navigation>

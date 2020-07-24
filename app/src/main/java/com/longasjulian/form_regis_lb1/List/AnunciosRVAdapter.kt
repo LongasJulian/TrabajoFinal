@@ -26,7 +26,13 @@ class AnunciosRVAdapter(
         holder.bindAnuncios(anuncios)
     }
 
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
 
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
 
 
     class AnunciosViewHolder(
@@ -34,7 +40,7 @@ class AnunciosRVAdapter(
     ) : RecyclerView.ViewHolder(itemView){
 
         fun bindAnuncios(anuncios: Anuncios){
-            itemView.Asunto_TV.text = anuncios.asunto
+            itemView.Titulo_TV.text = anuncios.asunto
             itemView.Mensaje_TV.text = anuncios.mensaje
             if(!anuncios.foto.isNullOrEmpty())
                 Picasso.get().load(anuncios.foto).into(itemView.Foto_IV)

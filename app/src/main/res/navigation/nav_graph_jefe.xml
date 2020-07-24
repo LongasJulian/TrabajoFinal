@@ -10,7 +10,8 @@
         android:id="@+id/anunciosJefeFragment"
         android:name="com.longasjulian.form_regis_lb1.Fragmentos.AnunciosJefeFragment"
         android:label="@string/Anuncios_Jefe_fragment_label"
-        tools:layout="@layout/fragment_anuncios_jefe" />
+        tools:layout="@layout/fragment_anuncios_jefe" >
+</fragment>
     <fragment
         android:id="@+id/horarioJefeFragment"
         android:name="com.longasjulian.form_regis_lb1.Fragmentos.HorarioJefeFragment"

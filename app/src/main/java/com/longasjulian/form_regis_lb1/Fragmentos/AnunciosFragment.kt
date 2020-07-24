@@ -30,9 +30,6 @@ class AnunciosFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        cargarAnuncios()
-
         Anuncios_RV.layoutManager = LinearLayoutManager(
             requireContext(),
             RecyclerView.VERTICAL,
@@ -41,9 +38,11 @@ class AnunciosFragment : Fragment() {
 
         Anuncios_RV.setHasFixedSize(true)
 
+        cargarAnuncios()
+
+
          anunciosAdapter = AnunciosRVAdapter(anunciosList as ArrayList<Anuncios>)
         Anuncios_RV.adapter = anunciosAdapter
-
     }
 
     private fun cargarAnuncios() {
@@ -57,10 +56,12 @@ class AnunciosFragment : Fragment() {
             }
 
             override fun onDataChange(snapshot: DataSnapshot) {
+                anunciosList.clear()
                 for (datasnapshot: DataSnapshot in snapshot.children) {
                     val anuncios = datasnapshot.getValue(Anuncios::class.java)
                     anunciosList.add(anuncios!!)
                 }
+                anunciosList.reverse()
                 anunciosAdapter.notifyDataSetChanged()
             }
 

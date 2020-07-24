@@ -6,23 +6,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
+import com.longasjulian.form_regis_lb1.AgregarAnunciosActivity
 import com.longasjulian.form_regis_lb1.List.AnunciosJefeRVAdapter
-import com.longasjulian.form_regis_lb1.List.AnunciosRVAdapter
-import com.longasjulian.form_regis_lb1.MainActivityJefe
 import com.longasjulian.form_regis_lb1.R
 import com.longasjulian.form_regis_lb1.database.Anuncios
-import kotlinx.android.synthetic.main.fragment_anuncios.*
-import kotlinx.android.synthetic.main.fragment_anuncios.Anuncios_RV
 import kotlinx.android.synthetic.main.fragment_anuncios_jefe.*
+import kotlin.collections.ArrayList
 
 class AnunciosJefeFragment : Fragment() {
 
     private val anunciosJefeList: MutableList<Anuncios> = mutableListOf()
     private lateinit var anunciosJefeAdapter : AnunciosJefeRVAdapter
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,9 +48,14 @@ class AnunciosJefeFragment : Fragment() {
         anunciosJefeAdapter = AnunciosJefeRVAdapter(anunciosJefeList as ArrayList<Anuncios>)
         AnunciosJefe_RV.adapter = anunciosJefeAdapter
 
+        AgregarAnuncios_BT.setOnClickListener{
+            var intent = Intent(activity,AgregarAnunciosActivity::class.java)
+            startActivity(intent)
+        }
 
 
     }
+
 
     private fun cargarAnuncios() {
         val dataBase: FirebaseDatabase = FirebaseDatabase.getInstance()
@@ -64,10 +67,12 @@ class AnunciosJefeFragment : Fragment() {
             }
 
             override fun onDataChange(snapshot: DataSnapshot) {
+                anunciosJefeList.clear()
                 for (datasnapshot: DataSnapshot in snapshot.children) {
                     val anuncios = datasnapshot.getValue(Anuncios::class.java)
                     anunciosJefeList.add(anuncios!!)
                 }
+                anunciosJefeList.reverse()
                 anunciosJefeAdapter.notifyDataSetChanged()
             }
 

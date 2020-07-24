@@ -3,7 +3,6 @@ package com.longasjulian.form_regis_lb1.List
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.RecyclerView
 import com.longasjulian.form_regis_lb1.R
 import com.longasjulian.form_regis_lb1.database.Anuncios
@@ -27,12 +26,20 @@ class AnunciosJefeRVAdapter(
         holder.bindAnunciosJefe(anuncios)
     }
 
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
+
     class AnunciosJefeViewHolder(
         itemView: View
     ) : RecyclerView.ViewHolder(itemView) {
 
         fun bindAnunciosJefe(anunciosjefe: Anuncios){
-            itemView.Asunto_TV.text = anunciosjefe.asunto
+            itemView.Titulo_TV.text = anunciosjefe.asunto
             itemView.Mensaje_TV.text = anunciosjefe.mensaje
             if(!anunciosjefe.foto.isNullOrEmpty())
                 Picasso.get().load(anunciosjefe.foto).into(itemView.Foto_IV)

@@ -80,4 +80,7 @@
     <string name="EncuestaSalida2_TX">A la hora de salir había poca clientela</string>
     <string name="EncuestaSalida4_TX">Se realizaron todas las actividades de cierre</string>
     <string name="Mis_jefes">Mis Jefes</string>
+    <string name="HoraEntrada_TX">Ingrese la hora de entrada</string>
+    <string name="HoraSalida_TX">Ingrese la hora de salida</string>
+    <string name="guion">-</string>
 </resources>

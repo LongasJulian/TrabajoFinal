@@ -1,23 +1,33 @@
 package com.longasjulian.form_regis_lb1.Fragmentos
 
-import android.app.DatePickerDialog
+import android.content.AbstractThreadedSyncAdapter
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CalendarView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.*
+import com.longasjulian.form_regis_lb1.List.HorarioJefeRVAdapter
+import com.longasjulian.form_regis_lb1.List.HorarioRVAdapter
 import com.longasjulian.form_regis_lb1.R
-import kotlinx.android.synthetic.main.activity_register.*
+import com.longasjulian.form_regis_lb1.database.Horarios
+import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.fragment_horario.*
-import java.text.SimpleDateFormat
+import kotlinx.android.synthetic.main.fragment_horario_jefe.*
+import java.time.Month
 import java.util.*
 
 
 class HorarioFragment : Fragment() {
-    private var cal= Calendar.getInstance()
-    private lateinit var date: String //inicializarla despues
+    private val horarioList: MutableList<Horarios> = mutableListOf()
+    private lateinit var horariosAdapter: HorarioRVAdapter
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -27,29 +37,48 @@ class HorarioFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
-        val dataSetListener =
-            DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
-                cal.set(Calendar.YEAR, year)
-                cal.set(Calendar.MONTH, month)
-                cal.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-                val format = "MM/dd/yyyy"
-                val simpleDateFormat = SimpleDateFormat(format, Locale.US)
-                date = simpleDateFormat.format(cal.time).toString()
-                Toast.makeText(requireContext(),date,Toast.LENGTH_LONG ).show()
-            }
+        Horario_RV.layoutManager = LinearLayoutManager(
+            requireContext(),
+            RecyclerView.VERTICAL,
+            false
+        )
 
-        CalendarioView.setOnClickListener {
-            DatePickerDialog(
-                requireContext(),
-                dataSetListener,
-                cal.get(Calendar.YEAR),
-                cal.get(Calendar.MONTH),
-                cal.get(Calendar.DAY_OF_MONTH)
-            ).show()
+        Horario_RV.setHasFixedSize(true)
+
+        horariosAdapter = HorarioRVAdapter(horarioList as ArrayList<Horarios>)
+        Horario_RV.adapter = horariosAdapter
+        var fecha = ""
+        CalendarHorario.setOnDateChangeListener{ calendarView: CalendarView, year, mes, dia ->
+            Toast.makeText(requireContext(),"$dia/${mes+1}/$year",Toast.LENGTH_LONG).show()
+            fecha ="$dia/${mes+1}/$year"
+            cargarHorario(fecha)
         }
+
     }
 
+    private fun cargarHorario(fecha: String) {
+        val dataBase: FirebaseDatabase = FirebaseDatabase.getInstance()
+        var myRef : DatabaseReference = dataBase.getReference("horario")
+        val postListener = object : ValueEventListener {
+            override fun onCancelled(error: DatabaseError) {
+            }
+
+            override fun onDataChange(snapshot: DataSnapshot) {
+                horarioList.clear()
+                for(datasnapshot: DataSnapshot in snapshot.children){
+                    val horarios = datasnapshot.getValue(Horarios::class.java)
+                    if(horarios?.fecha == fecha )
+                        horarioList.add(horarios!!)
+                }
+                horariosAdapter.notifyDataSetChanged()
+            }
+
+        }
+        myRef.addListenerForSingleValueEvent(postListener)
+
+    }
 
 }
+
+

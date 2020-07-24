@@ -30,9 +30,7 @@ class MainActivityJefe : AppCompatActivity() {
         if(!nombrein.isNullOrEmpty())
             Toast.makeText(this,"Hola! $nombrein", Toast.LENGTH_LONG).show()
 
-        AgregarAnuncios_BT.setOnClickListener {
-            startActivity(Intent(this, AgregarAnunciosActivity::class.java))
-        }
+
 
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

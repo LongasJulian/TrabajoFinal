@@ -2,10 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.longasjulian.form_regis_lb1">
 
-    <uses-feature android:name = "android.hardware.camera2"
-        android:required= "true"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
-
+    <uses-feature
+        android:name="android.hardware.camera2"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -14,11 +15,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AgregarAnunciosActivity"></activity>
+        <activity android:name=".AgregarHorarioActivity"></activity>
+        <activity android:name=".AgregarAnunciosActivity" />
         <activity
             android:name=".MainActivityJefe"
             android:label="@string/title_activity_main_jefe"
-            android:theme="@style/AppTheme.DarkActionBar"></activity>
+            android:theme="@style/AppTheme.DarkActionBar" />
         <activity
             android:name=".MainActivityEmpleado"
             android:label="@string/title_activity_main3"
