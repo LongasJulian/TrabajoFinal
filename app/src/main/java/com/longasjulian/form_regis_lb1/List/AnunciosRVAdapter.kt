@@ -42,6 +42,7 @@ class AnunciosRVAdapter(
         fun bindAnuncios(anuncios: Anuncios){
             itemView.Titulo_TV.text = anuncios.asunto
             itemView.Mensaje_TV.text = anuncios.mensaje
+            itemView.FechaAnuncios_TV.text = anuncios.fecha
             if(!anuncios.foto.isNullOrEmpty())
                 Picasso.get().load(anuncios.foto).into(itemView.Foto_IV)
         }

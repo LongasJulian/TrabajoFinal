@@ -41,6 +41,12 @@ class MainActivityEmpleado : AppCompatActivity() {
             FirebaseAuth.getInstance().signOut()
             goToLoginActivity2()
         }
+        if(item.itemId == R.id.Mi_perfil){
+            goToMiPerfilActivity()
+        }
+        if(item.itemId == R.id.Mis_jefes){
+            goToMisEMpleadosJefesActivity()
+        }
 
         return super.onOptionsItemSelected(item)
     }
@@ -48,5 +54,11 @@ class MainActivityEmpleado : AppCompatActivity() {
     private fun goToLoginActivity2() {
         startActivity(Intent(this, LoginActivity2::class.java))
         finish()
+    }
+    private fun goToMiPerfilActivity() {
+        startActivity(Intent(this, MiPerfilActivity::class.java))
+    }
+    private fun goToMisEMpleadosJefesActivity() {
+        startActivity(Intent(this, EmpleadosJefesActivity::class.java))
     }
 }

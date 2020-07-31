@@ -15,7 +15,6 @@ import com.longasjulian.form_regis_lb1.AgregarHorarioActivity
 import com.longasjulian.form_regis_lb1.List.HorarioJefeRVAdapter
 import com.longasjulian.form_regis_lb1.R
 import com.longasjulian.form_regis_lb1.database.Horarios
-import kotlinx.android.synthetic.main.activity_agregar_horario.*
 import kotlinx.android.synthetic.main.fragment_horario_jefe.*
 
 
@@ -75,11 +74,7 @@ class HorarioJefeFragment : Fragment() {
                 }
                 horariosJefeAdapter.notifyDataSetChanged()
             }
-
         }
         myRef.addListenerForSingleValueEvent(postListener)
-
     }
-
-
 }

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,7 +17,7 @@ import com.longasjulian.form_regis_lb1.database.Anuncios
 import kotlinx.android.synthetic.main.fragment_anuncios_jefe.*
 import kotlin.collections.ArrayList
 
-class AnunciosJefeFragment : Fragment() {
+class AnunciosJefeFragment : Fragment(){
 
     private val anunciosJefeList: MutableList<Anuncios> = mutableListOf()
     private lateinit var anunciosJefeAdapter : AnunciosJefeRVAdapter
@@ -48,10 +49,14 @@ class AnunciosJefeFragment : Fragment() {
         anunciosJefeAdapter = AnunciosJefeRVAdapter(anunciosJefeList as ArrayList<Anuncios>)
         AnunciosJefe_RV.adapter = anunciosJefeAdapter
 
+
         AgregarAnuncios_BT.setOnClickListener{
             var intent = Intent(activity,AgregarAnunciosActivity::class.java)
             startActivity(intent)
+
         }
+
+
 
 
     }
@@ -79,5 +84,6 @@ class AnunciosJefeFragment : Fragment() {
         }
         myRef.addListenerForSingleValueEvent(postListener)
     }
+
 
 }

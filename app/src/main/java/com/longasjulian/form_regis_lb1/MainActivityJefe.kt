@@ -44,11 +44,23 @@ class MainActivityJefe : AppCompatActivity() {
             FirebaseAuth.getInstance().signOut()
             goToLoginActivity2()
         }
+        if(item.itemId == R.id.Mi_perfilJefe){
+            goToMiPerfilJefeActivity()
+        }
+        if(item.itemId == R.id.Mis_EmpleadosJefe){
+            goToMisEMpleadosJefesActivity()
+        }
         return super.onOptionsItemSelected(item)
     }
 
     private fun goToLoginActivity2() {
         startActivity(Intent(this, LoginActivity2::class.java))
         finish()
+    }
+    private fun goToMiPerfilJefeActivity() {
+        startActivity(Intent(this, MiPerfilActivity::class.java))
+    }
+    private fun goToMisEMpleadosJefesActivity() {
+        startActivity(Intent(this, EmpleadosJefesActivity::class.java))
     }
 }

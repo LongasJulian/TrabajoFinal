@@ -11,12 +11,14 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.longasjulian.form_regis_lb1.database.Anuncios
-import com.longasjulian.form_regis_lb1.database.datosEmpleados
 import kotlinx.android.synthetic.main.activity_agregar_anuncios.*
-import kotlinx.android.synthetic.main.anuncios_item.*
 import java.io.ByteArrayOutputStream
+import java.text.SimpleDateFormat
+import java.util.*
 
 class AgregarAnunciosActivity : AppCompatActivity() {
+    private var cal= Calendar.getInstance()
+    private lateinit var fecha: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_agregar_anuncios)
@@ -29,7 +31,10 @@ class AgregarAnunciosActivity : AppCompatActivity() {
 
             val asunto = TituloAnuncios_TL.text.toString()
             val mensaje = MensajeAnuncios_TL.text.toString()
-            crearDatabase(asunto,mensaje)
+            var format = "dd/MM/yyyy"
+            var simpleDateFormat = SimpleDateFormat(format, Locale.US)
+            fecha = simpleDateFormat.format(cal.time).toString()
+            crearDatabase(asunto,mensaje,fecha)
             goToMainActivityJefe()
 
         }
@@ -54,7 +59,8 @@ class AgregarAnunciosActivity : AppCompatActivity() {
 
     private fun crearDatabase(
         asunto: String,
-        mensaje: String
+        mensaje: String,
+        fecha: String
     ) {
 
 
@@ -90,6 +96,8 @@ class AgregarAnunciosActivity : AppCompatActivity() {
                     id,
                     asunto,
                     mensaje,
+                    fecha,
+
                     urlPhoto
                 )
                 myRef.child(id).setValue(anuncios)

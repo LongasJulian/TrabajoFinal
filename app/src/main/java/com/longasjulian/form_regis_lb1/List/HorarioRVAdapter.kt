@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.longasjulian.form_regis_lb1.R
+import com.longasjulian.form_regis_lb1.database.Anuncios
 import com.longasjulian.form_regis_lb1.database.Horarios
 import kotlinx.android.synthetic.main.horarios_item.view.*
 

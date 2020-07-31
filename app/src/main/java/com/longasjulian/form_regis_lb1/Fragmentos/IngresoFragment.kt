@@ -6,31 +6,40 @@ import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.provider.MediaStore
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import com.longasjulian.form_regis_lb1.R
-import com.longasjulian.form_regis_lb1.database.Anuncios
+import com.longasjulian.form_regis_lb1.database.IngresoEmpleados
 import com.longasjulian.form_regis_lb1.database.IngresoSalidaEmpleados
 import com.longasjulian.form_regis_lb1.database.datosEmpleados
-import kotlinx.android.synthetic.main.activity_agregar_anuncios.*
 import kotlinx.android.synthetic.main.fragment_ingreso.*
 import java.io.ByteArrayOutputStream
+import java.text.SimpleDateFormat
+import java.util.*
 
 class IngresoFragment : Fragment() {
-
+    val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
     var nombreEmpleado = ""
-
+    private var cal= Calendar.getInstance()
+    private var cal1 = Calendar.getInstance()
+    private lateinit var fecha: String
+    private lateinit var horaingreso: String
+    private lateinit var horasalida: String
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        val user = mAuth.currentUser
+        buscarInDatabese(user?.email.toString())
         return inflater.inflate(R.layout.fragment_ingreso, container, false)
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -39,63 +48,68 @@ class IngresoFragment : Fragment() {
         FotoIngreso_IV.setOnClickListener {
             dispatchTakePictureIntent()
         }
+        var format = "dd/MM/yyyy"
+        var simpleDateFormat = SimpleDateFormat(format, Locale.US)
 
-        Salida_TB.setOnClickListener {
-            val nombre = NombreIngreso_TL.text.toString()
-            var encuestaingreso1 = ""
-            var encuestaingreso2 = ""
-            var encuestaingreso3 = ""
-            var encuestasalida1 = ""
-            var encuestasalida2 = ""
-            var encuestasalida3 = ""
-            if (EncuestaIngreso1_CB.isChecked) {
-                encuestaingreso1 = "No encontré mi lugar de trabajo limpio y organizado"
-            }
-            if (EncuestaIngreso2_CB.isChecked) {
-                 encuestaingreso2 = "Había muchos clientes a la hora de ingreso"
-            }
-            if (EncuestaIngreso3_CB.isChecked) {
-                 encuestaingreso3 = "No se habían realizado aun las tareas diarias de ingreso"
-            }
+        Ingresar_TB.setOnClickListener {
             val preguntaabiertaingreso = EncuestaAbierta_TL.text.toString()
+            fecha = simpleDateFormat.format(cal.time).toString()
 
-            if (EncuestaSalida1_CB.isChecked) {
-                encuestasalida1 = "No se lograron realizar todas las tareas diarias"
-            }
-            if (EncuestaSalida2_CB.isChecked) {
-                encuestasalida2 = "A la hora de salir había poca clientela"
-            }
-            if (EncuestaSalida3_CB.isChecked) {
-                encuestasalida3 = "Se realizaron todas las actividades de cierre"
-            }
-            val preguntaabiertasalida = EncuestaAbierta_TL.text.toString()
+            format = "HH:mm:ss"
+            simpleDateFormat = SimpleDateFormat(format, Locale.US)
+            horaingreso = simpleDateFormat.format(cal.time).toString()
 
-            //buscarInDatabese(nombre)
-            guardarInDatabe(nombre,encuestaingreso1,encuestaingreso2,encuestaingreso3,preguntaabiertaingreso,
-                encuestasalida1,encuestasalida2,encuestasalida3,preguntaabiertasalida)
-            NombreIngreso_TL.setText("")
+            Toast.makeText(requireContext(), "$fecha $horaingreso",Toast.LENGTH_SHORT).show()
+
+            guardarIngreso(
+                nombreEmpleado,
+                fecha,
+                horaingreso,
+                preguntaabiertaingreso
+            )
+
+            EncuestaAbierta_TL.visibility = View.GONE
+            Ingresar_TB.visibility = View.GONE
+
+            EncuestaAbiertaSalida_TL.visibility = View.VISIBLE
             EncuestaAbiertaSalida_TL.setText("")
-            EncuestaAbierta_TL.setText("")
-           // FotoIngreso_IV.setImageBitmap(R.mipmap.nombre as Bitmap)
-
-
+            Salida_TB.visibility = View.VISIBLE
         }
 
+        Salida_TB.setOnClickListener {
+            val preguntaabiertasalida = EncuestaAbiertaSalida_TL.text.toString()
+
+            cal1 = Calendar.getInstance()
+            var formathora = "HH:mm:ss"
+            var simpleDateFormathora = SimpleDateFormat(formathora, Locale.US)
+            horasalida = simpleDateFormathora.format(cal1.time).toString()
+            Toast.makeText(requireContext(), "$fecha $horasalida",Toast.LENGTH_SHORT).show()
+
+            guardarSalida(
+                nombreEmpleado,
+                fecha,
+                horasalida,
+                preguntaabiertasalida
+            )
+
+            EncuestaAbierta_TL.visibility = View.VISIBLE
+            EncuestaAbierta_TL.setText("")
+            Ingresar_TB.visibility = View.VISIBLE
+
+            EncuestaAbiertaSalida_TL.visibility = View.GONE
+            Salida_TB.visibility = View.GONE
+
+        }
     }
 
-    private fun guardarInDatabe(
-        nombreEmpleado: String,
-        encuestaingreso1: String,
-        encuestaingreso2: String,
-        encuestaingreso3: String,
-        preguntaabiertaingreso: String,
-        encuestasalida1: String,
-        encuestasalida2: String,
-        encuestasalida3: String,
-        preguntaabiertasalida: String
+    private fun guardarIngreso(
+        nombre: String,
+        fecha: String,
+        horaingreso: String,
+        preguntaabiertaingreso: String
     ) {
-        val database : FirebaseDatabase = FirebaseDatabase.getInstance()
-        val myRef : DatabaseReference = database.getReference("ingresosalidaempleados")
+        val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+        val myRef: DatabaseReference = database.getReference("ingresoempleados")
         val id = myRef.push().key
 
         val mStorage = FirebaseStorage.getInstance()
@@ -121,26 +135,41 @@ class IngresoFragment : Fragment() {
         }.addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 urlPhoto = task.result.toString()
-                val ingresosalida = IngresoSalidaEmpleados(
+                val ingreso = IngresoEmpleados(
                     id,
-                    nombreEmpleado,
-                    encuestaingreso1,
-                    encuestaingreso2,
-                    encuestaingreso3,
+                    nombre,
                     preguntaabiertaingreso,
-                    encuestasalida1,
-                    encuestasalida2,
-                    encuestasalida3,
-                    preguntaabiertasalida,
+                    fecha,
+                    horaingreso,
                     urlPhoto
                 )
-                myRef.child(id!!).setValue(ingresosalida)
+                myRef.child(id!!).setValue(ingreso)
             }
         }
-
     }
 
-    private fun buscarInDatabese(nombre: String) {
+    private fun guardarSalida(
+        nombreEmpleado: String,
+        fecha: String,
+        horasalida: String,
+        preguntaabiertasalida: String
+    ) {
+        val database: FirebaseDatabase = FirebaseDatabase.getInstance()
+        val myRef: DatabaseReference = database.getReference("ingresosalidaempleados")
+        val id = myRef.push().key
+        val salida = IngresoSalidaEmpleados(
+            id,
+            nombreEmpleado,
+            fecha,
+            horasalida,
+            preguntaabiertasalida
+        )
+        myRef.child(id!!).setValue(salida)
+    }
+
+
+
+    private fun buscarInDatabese(email: String) {
         val dataBase: FirebaseDatabase = FirebaseDatabase.getInstance()
         var myRef : DatabaseReference = dataBase.getReference("datostrabajo")
         myRef = dataBase.getReference("datostrabajo")
@@ -151,15 +180,12 @@ class IngresoFragment : Fragment() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (datasnapshot: DataSnapshot in snapshot.children) {
                     val trabajador = datasnapshot.getValue(datosEmpleados::class.java)
-
-                    if (trabajador?.nombre == nombre){
+                    if (trabajador?.correo == email){
                         empleadoExiste = true
-                        nombreEmpleado = nombre
-
+                        nombreEmpleado = trabajador.nombre.toString()
+                      //  NombreIngreso_TL.setText(nombreEmpleado)
                     }
                 }
-                if (!empleadoExiste)
-                    Toast.makeText(requireContext(),"Empleado no registrado", Toast.LENGTH_SHORT).show()
             }
 
         }

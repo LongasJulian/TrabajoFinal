@@ -4,5 +4,6 @@ class Anuncios (
     val id: String? = "",
     val asunto: String = "",
     val mensaje: String = "",
+    val fecha: String ="",
     val foto: String = ""
 )

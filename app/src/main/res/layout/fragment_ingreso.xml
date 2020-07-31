@@ -21,38 +21,6 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/NombreIngreso_TL"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/nombre_txt" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <CheckBox
-            android:id="@+id/EncuestaIngreso1_CB"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/EncuestaIngreso1_TX"
-            android:textSize="16sp" />
-
-        <CheckBox
-            android:id="@+id/EncuestaIngreso2_CB"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/EncuestaIngreso2_TX"
-            android:textSize="16sp" />
-
-        <CheckBox
-            android:id="@+id/EncuestaIngreso3_CB"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/EncuestaIngreso4_TX"
-            android:textSize="16sp"/>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -69,27 +37,6 @@
             android:backgroundTint="@color/brown"
             android:text="@string/ingresar_TX"
             android:textColor="@color/white" />
-
-        <CheckBox
-            android:id="@+id/EncuestaSalida1_CB"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/EncuestaSalida1_TX"
-            android:textSize="16sp" />
-
-        <CheckBox
-            android:id="@+id/EncuestaSalida2_CB"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/EncuestaSalida2_TX"
-            android:textSize="16sp" />
-
-        <CheckBox
-            android:id="@+id/EncuestaSalida3_CB"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/EncuestaSalida4_TX"
-            android:textSize="16sp"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"

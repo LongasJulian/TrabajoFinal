@@ -9,13 +9,19 @@
         android:required="true" />
 
     <application
+        android:name=".ui.main.Form_regis_LB1"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AgregarHorarioActivity"></activity>
+        <activity android:name=".EmpleadosJefesActivity">
+        </activity>
+        <activity
+            android:name=".MiPerfilActivity"
+            android:label="@string/Mi_perfil" />
+        <activity android:name=".AgregarHorarioActivity" />
         <activity android:name=".AgregarAnunciosActivity" />
         <activity
             android:name=".MainActivityJefe"

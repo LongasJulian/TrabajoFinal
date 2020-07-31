@@ -50,7 +50,7 @@ class HorarioFragment : Fragment() {
         Horario_RV.adapter = horariosAdapter
         var fecha = ""
         CalendarHorario.setOnDateChangeListener{ calendarView: CalendarView, year, mes, dia ->
-            Toast.makeText(requireContext(),"$dia/${mes+1}/$year",Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(),"$dia/${mes+1}/$year",Toast.LENGTH_SHORT).show()
             fecha ="$dia/${mes+1}/$year"
             cargarHorario(fecha)
         }

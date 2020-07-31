@@ -2,8 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/Mis_EmpleadosJefe"
+        android:title="@string/Mi_Empleado" />
+    <item
         android:id="@+id/Mi_perfilJefe"
-        android:title="@string/Mi_perfil" />
+        android:title="@string/Mi_perfil"/>
     <item
         android:id="@+id/Cerrar_Sesion"
         android:title="@string/cerrar_sesion" />

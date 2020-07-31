@@ -1,14 +1,208 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragmentos.EmpleadosFragment">
+    android:layout_margin="8dp"
+    android:background="@color/seashell">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@color/seashell"
+        android:orientation="vertical"
+        tools:context=".Fragmentos.EmpleadosFragment">
 
-</FrameLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/NombreEmpleado_TV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/NombreIngreso_TX" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/FechaEmpleado_TV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/architects_daughter"
+            android:gravity="center"
+            android:text="@string/IngreseFecha_TX"
+            android:textColor="@color/brown"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/FechaEmpleadoInOut_TV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/Formato_TX"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/CalendarioEmpleado_BT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/brown"
+                android:fontFamily="@font/architects_daughter"
+                android:text="@string/Calendario_TX"
+                android:textColor="@color/seashell" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/BuscarEmpleado_BTT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:backgroundTint="@color/brown"
+            android:fontFamily="@font/architects_daughter"
+            android:text="@string/Buscar_TX"
+            android:textColor="@color/seashell" />
+
+        <FrameLayout
+            android:id="@+id/TarjetaEmpleado_FL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/seashell"
+            android:padding="1dp">
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/NombreOut_TV"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:clickable="false"
+                        android:fontFamily="@font/architects_daughter"
+                        android:gravity="center"
+                        android:linksClickable="false"
+                        android:textAlignment="center"
+                        android:textColor="@color/brown"
+                        android:textSize="22sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/FotoIngresoOut_IV"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.497"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/NombreOut_TV"
+                        tools:src="@tools:sample/avatars" />
+
+                    <TextView
+                        android:id="@+id/FechaOut_TV"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/FotoIngresoOut_IV" />
+
+                    <TextView
+                        android:id="@+id/HoraIngresoOut"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="18dp"
+                        android:text="@string/HoraIngreso"
+                        android:textColor="@color/brown"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toStartOf="@+id/HoraSalidaOut"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/FechaOut_TV" />
+
+                    <TextView
+                        android:id="@+id/HoraSalidaOut"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="110dp"
+                        android:layout_marginTop="18dp"
+                        android:layout_marginEnd="20dp"
+                        android:text="@string/HoraSalidaT"
+                        android:textColor="@color/brown"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/HoraIngresoOut"
+                        app:layout_constraintTop_toBottomOf="@+id/FechaOut_TV" />
+
+                    <TextView
+                        android:id="@+id/HoraOutIngreso_TV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="13dp"
+                        android:layout_marginBottom="10dp"
+                        android:textSize="15sp"
+                        app:layout_constraintBottom_toTopOf="@+id/NovedadesOutIngreso_TV"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/HoraIngresoOut" />
+
+                    <TextView
+                        android:id="@+id/HoraOutSalida_TV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:layout_marginEnd="60dp"
+                        android:layout_marginBottom="10dp"
+                        android:textSize="15sp"
+                        app:layout_constraintBottom_toTopOf="@+id/NovedadesOutIngreso_TV"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/HoraSalidaOut" />
+
+                    <TextView
+                        android:id="@+id/NovedadesOutIngreso_TV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/HoraOutIngreso_TV" />
+
+                    <TextView
+                        android:id="@+id/NovedadesOutSalida_TV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/NovedadesOutIngreso_TV" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+        </FrameLayout>
+    </LinearLayout>
+</ScrollView>

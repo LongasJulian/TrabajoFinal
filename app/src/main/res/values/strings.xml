@@ -2,7 +2,7 @@
     <string name="app_name">A Trabajar!</string>
     <string name="Titulo_value">Formulario de Registro</string>
     <string name="nombre_txt">Nombre Completo</string>
-    <string name="Correo_txt">Correo Electrónico</string>
+    <string name="Correo_txt">Correo Electrónico:</string>
     <string name="Celular_txt">Celular</string>
     <string name="Contrasena_txt">Contraseña</string>
     <string name="Rcontrasena_txt">Repetir Contraseña</string>
@@ -29,6 +29,7 @@
     <string name="Empleados">Empleados</string>
     <string name="cerrar_sesion">Cerrar Sesión</string>
     <string name="Mi_perfil">Mi perfil</string>
+    <string name="Mi_Empleado">Mis Empleados</string>
 
     <string name="Titulo_Splash">A Trabajar!</string>
     <string name="subTitulo_TX">Desarrollada por:</string>
@@ -55,7 +56,7 @@
 
     <string name="Anuncios_Jefe_fragment_label">Anuncios</string>
     <string name="horarios_Jefe_fragment_label">Horarios</string>
-    <string name="Empleados_fragment_label">Empleados</string>
+    <string name="Empleados_fragment_label">Ingreso Salida</string>
 
     <string name="Horario_TX">En este fragmento el Empleado tendrá la posiblidad de ver su horario de
             trabajo y el de los demás compañeros, los jefes tendrán la oportunidad de editar el
@@ -83,4 +84,13 @@
     <string name="HoraEntrada_TX">Ingrese la hora de entrada</string>
     <string name="HoraSalida_TX">Ingrese la hora de salida</string>
     <string name="guion">-</string>
+    <string name="NombreIngreso_TX">Nombre completo del empleado</string>
+    <string name="HoraIngreso">Hora de ingreso</string>
+    <string name="HoraSalidaT">Hora de salida</string>
+    <string name="IngreseFecha_TX">Ingrese el día que trabajó el empleado</string>
+    <string name="Buscar_TX">Buscar empleado</string>
+    <string name="Bancoitem_TX">Banco </string>
+    <string name="NumeroCuentaItem_TX">Número de cuenta </string>
+    <string name="Correoitem_TX">Correo:  </string>
+    <string name="BancoNumeroCuenta_TX">Banco y número de cuenta</string>
 </resources>
